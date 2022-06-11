@@ -1,0 +1,50 @@
+                    #
+                  %%&
+              ,%%%%%%    #,
+            %%%%%%%%%       (
+         *%%%%%%%%%%%
+      #%%%%%%%%%%%@. &%@.        /                           _     __
+    %%%%%%& %%%%%%%% %%%%%%%%%@     (        _______ ___ _  (_)__ / /
+ @*%%%%%%%%%%%%%%%%% %&%%%%%%%%%%%%%%@ /    / __/ _ `/  ' \/ / -_) /
+   &@@@&%%%%%%%%%%%% %%%%%%%%%%%%%%%% /    /_/  \_,_/_/_/_/_/\__/_/
+      @@@@@@@@%%%%%% %%%%%%%%%%%%%         ---------- 0xwillow#2009
+        %@@@@&@@@@@@ %%%%%%%%%%&/
+           #@@@@@@@@ %%%%%%%%*
+              #@@@&@ %%%%%(
+                 @@@.%%%
+                   #%#
+
+
+<ramiel> loading kernel EFI stub ... DONE
+<ramiel> patching blah blah blah ... DONE
+<ramiel> booting ...
+
+no
+- nvram persistence ?
+ is it possible to do persistence through NVRAM, for example store a .efi in a variable and use that .efi as a stub to load whatever malicious thing you want from the internet
+
+ it would both survive reboots, hard disk wipes and all sorts of other stuff
+ right ??
+ and since nvram is like 64k theres plenty of space
+
+use boot order and recovery boot order network boot for persistence
+boot from ram
+
+in order to survive os reinstall - overwrite uefi shell and set boot order to boot uefi shell
+in order to survive hard disk wipe - use PXE boot to load stub from internet
+
+dmpstore then create ramdisk
+https://techlibrary.hpe.com/docs/iss/proliant_uefi/UEFI_Edgeline_103117/v31394610.html
+
+
+
+
+TODO:
+- x86 helloworld
+- chainloader (load linux kernel)
+- write to uefi vars from usermode via runtime services
+- for infection, over-write current bootloader or uefi shell to survive os reinstall (will not survive hard drive nuke)
+- hijack boot order or whatever to boot from pxe netboot for recovery
+- write read .efi file from uefi and store in var
+- load from var
+- ransomware from uefi to bypass AV
