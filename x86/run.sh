@@ -11,7 +11,7 @@ make \
 && mformat -i /tmp/part.img -h 32 -t 32 -n 64 -c 1 \
 && mcopy -i /tmp/part.img main.efi :: \
 && dd if=/tmp/part.img of=main.img bs=512 count=91669 seek=2048 conv=notrunc \
-&& qemu-system-aarch64 -machine virt -cpu max \
+&& qemu-system-x86_64 -machine virt -cpu max \
     -bios OVMF.fd \
     -drive format=raw,file=main.img \
     -net none \

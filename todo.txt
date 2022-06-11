@@ -19,7 +19,7 @@
 <ramiel> patching blah blah blah ... DONE
 <ramiel> booting ...
 
-no
+
 - nvram persistence ?
  is it possible to do persistence through NVRAM, for example store a .efi in a variable and use that .efi as a stub to load whatever malicious thing you want from the internet
 
@@ -27,8 +27,8 @@ no
  right ??
  and since nvram is like 64k theres plenty of space
 
-use boot order and recovery boot order network boot for persistence
-boot from ram
+use boot order and recovery boot order network boot for persistence (pxe boot is pre uefi)
+StartImage from ram
 
 in order to survive os reinstall - overwrite uefi shell and set boot order to boot uefi shell
 in order to survive hard disk wipe - use PXE boot to load stub from internet
