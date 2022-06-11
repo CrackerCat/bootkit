@@ -12,4 +12,5 @@ cd ..
 sed -i 's/LibStubStriCmp/NULL/g' gnu-efi/lib/data.c
 sed -i 's/LibStubMetaiMatch/NULL/g' gnu-efi/lib/data.c
 sed -i 's/LibStubStrLwrUpr/NULL/g' gnu-efi/lib/data.c
-cp gnu-efi/lib/lib.h lib.h
+# outdated
+# cp gnu-efi/lib/lib.h lib.h

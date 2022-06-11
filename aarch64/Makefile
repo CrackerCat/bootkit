@@ -19,10 +19,13 @@ LDFLAGS=-subsystem:efi_application -nodefaultlib -dll
 LDFLAGS+=-entry:efi_main
 
 all: main.efi
+
+clean:
+	rm *.efi *.img *.lib *.o
 	
 .o.c:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 main.efi: main.o
-	$(CC) $(CFLAGS) -c -o data.o gnu-efi-3.0.8/lib/data.c
+	$(CC) $(CFLAGS) -c -o data.o gnu-efi/lib/data.c
 	$(LD) $(LDFLAGS) $^ data.o -out:$@
