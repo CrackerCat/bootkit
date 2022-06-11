@@ -1,4 +1,5 @@
 #include <efi.h>
+#include <efilib.h>
 
 EFI_SYSTEM_TABLE *ST;
 EFI_BOOT_SERVICES *BS;
