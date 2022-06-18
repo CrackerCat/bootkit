@@ -20,6 +20,12 @@
 <ramiel> booting ...
 
 
+patch startup.nsh for persistence, stored in firmware ??
+flashrom
+
+flash ipxe to pci option rom on network card and boot from that
+
+
 - nvram persistence ?
  is it possible to do persistence through NVRAM, for example store a .efi in a variable and use that .efi as a stub to load whatever malicious thing you want from the internet
 
@@ -48,3 +54,12 @@ TODO:
 - write read .efi file from uefi and store in var
 - load from var
 - ransomware from uefi to bypass AV
+
+
+
+
+IMPORTANT NOTE:
+- stub persistence via ipxe pci option rom, set as a boot entry
+- malicious .efi stored in nvram in case rom runs out of space
+   - easier to write to nvram than network card rom, update nvram instead of flashing
+- check if nvram has been wiped, then re-download if it has
